@@ -114,6 +114,10 @@ class Shipper implements NodeInterface
             $node->appendChild($document->createElement('ShipperNumber', $shipperNumber));
         }
 
+        if ($this->getEmailAddress()) {
+            $node->appendChild($document->createElement('EMailAddress', $this->getEmailAddress()));
+        }
+
         $address = $this->getAddress();
         if (isset($address)) {
             $node->appendChild($address->toNode($document));

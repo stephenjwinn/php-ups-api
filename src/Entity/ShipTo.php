@@ -144,6 +144,9 @@ class ShipTo implements NodeInterface
         $node = $document->createElement('ShipTo');
         $node->appendChild($document->createElement('CompanyName', $this->getCompanyName()));
         $node->appendChild($document->createElement('AttentionName', $this->getAttentionName()));
+        if ($this->getEmailAddress()) {
+            $node->appendChild($document->createElement('EMailAddress', $this->getEmailAddress()));
+        }
 
         $address = $this->getAddress();
         if (isset($address)) {
